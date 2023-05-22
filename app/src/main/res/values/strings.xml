@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Stop Abuse</string>
+
+    <array name="lawsBig">
+
+        <item>
+            Google it
+        </item>
+
+        <item>
+            Google it
+        </item>
+        <item>
+            Google it
+
+        </item>
+        <item>
+            Google it
+        </item>
+        <item>
+            Google it
+        </item>
+        <item>
+            Google it
+        </item>
+        <item>
+            Google it
+        </item>
+        <item>Google it and copy paste
+
+        </item>
+        <item>Google it and copy paste
+
+        </item>
+        <item>Google it and copy paste
+
+        </item>
+    </array>
+</resources>

@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "597714014429",
+    "firebase_url": "https://stopabuse-bbae0-default-rtdb.firebaseio.com",
+    "project_id": "stopabuse-bbae0",
+    "storage_bucket": "stopabuse-bbae0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597714014429:android:dc6482a21154c4d0e94b34",
+        "android_client_info": {
+          "package_name": "com.darkness.sparkwomen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpFalSGDJf7OA7Sxp6Ic3mG7p4Nwcb9gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597714014429:android:2d4c1174d1f45f16e94b34",
+        "android_client_info": {
+          "package_name": "com.example.stop_abuse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpFalSGDJf7OA7Sxp6Ic3mG7p4Nwcb9gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597714014429:android:6bbb138b33888fc0e94b34",
+        "android_client_info": {
+          "package_name": "com.example.stopabuse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597714014429-efftf67jejl8i156qtioie0g1fhafm9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stopabuse",
+            "certificate_hash": "8411ff595701ebdbae79d76db8979724806a1a80"
+          }
+        },
+        {
+          "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpFalSGDJf7OA7Sxp6Ic3mG7p4Nwcb9gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597714014429-et9p05l9n82se49v2a1c4isp8lh8g069.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

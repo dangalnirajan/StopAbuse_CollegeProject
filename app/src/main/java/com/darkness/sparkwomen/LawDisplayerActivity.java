@@ -23,7 +23,16 @@ public class LawDisplayerActivity extends AppCompatActivity implements View.OnCl
         oneLine = findViewById(R.id.lawString);
         counter = getIntent().getIntExtra("position",0);
         // put description in strings.xml
-        laws = new String[]{"The Prohibition of Child Marriage Act, 2006","Special Marriage Act, 1954","Dowry Prohibition Act, 1961","Nepali Divorce Act, 1969","Maternity Benefit Act,1861","Medical Termination of Pregnancy Act,1971","Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redress) Act, 2013","Indecent Representation of Women(Prevention) Act,1986","National Commission for Women Act, 1990","Equal Remuneration Act, 1976"};
+        laws = new String[]{"The Prohibition of Child Marriage Act, 2006",
+                "Special Marriage Act, 1954",
+                "Dowry Prohibition Act, 1961",
+                "Nepali Divorce Act, 1969",
+                "Maternity Benefit Act,1861",
+                "Medical Termination of Pregnancy Act,1971",
+                "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redress) Act, 2013",
+                "Indecent Representation of Women(Prevention) Act,1986",
+                "National Commission for Women Act, 1990",
+                "Equal Remuneration Act, 1976"};
         lawsContent = this.getResources().getStringArray(R.array.lawsBig);
 
         closeBtn = findViewById(R.id.closeBtn);

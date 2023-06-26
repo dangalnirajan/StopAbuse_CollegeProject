@@ -72,7 +72,7 @@ class  MyViewsHolder extends RecyclerView.ViewHolder{
     TextView reportName,reportContact,reportDescription,reportAddress;
     CardView reportCard;
 
-    public MyViewsHolder(@NonNull View itemView) {
+    public MyViewsHolder(View itemView) {
         super(itemView);
 
         reportImage= itemView.findViewById(R.id.recImage);

@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class UploadActivity extends AppCompatActivity {
     EditText uploadName,uploadAddress,uploadContact,uploadDescription;
     String imageURL;
     Uri uri;
+    CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class UploadActivity extends AppCompatActivity {
         uploadAddress=findViewById(R.id.upload_address);
         uploadContact=findViewById(R.id.upload_contact);
         uploadDescription=findViewById(R.id.upload_description);
+        checkBox=findViewById(R.id.anonymous_post);
 
         ActivityResultLauncher<Intent>  activityResultLauncher=registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -72,6 +75,22 @@ public class UploadActivity extends AppCompatActivity {
                 Intent photoPicker = new Intent(Intent.ACTION_PICK);
                 photoPicker.setType("image/*");
                 activityResultLauncher.launch(photoPicker);
+            }
+        });
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    uploadName.setVisibility(View.GONE);
+                    uploadContact.setVisibility(View.GONE);
+                    uploadAddress.setVisibility(View.GONE);
+                }
+                else {
+                    uploadName.setVisibility(View.VISIBLE);
+                    uploadContact.setVisibility(View.VISIBLE);
+                    uploadAddress.setVisibility(View.VISIBLE);
+                }
             }
         });
 

@@ -26,9 +26,9 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = binding.signupEmail.getText().toString();
                 String password= binding.signupPassword.getText().toString();
-//                String address = binding.signupAddress.getText().toString();
-//                String username = binding.signupUsername.getText().toString();
-//                String name = binding.signupName.getText().toString();
+                String address = binding.signupAddress.getText().toString();
+                String username = binding.signupUsername.getText().toString();
+                String name = binding.signupName.getText().toString();
 
                 if(email.equals("") || password.equals("")){
                     Toast.makeText(SignupActivity.this, "All fields are required", Toast.LENGTH_SHORT).show();

@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public class ReportActivity extends AppCompatActivity {
     FloatingActionButton fillReport;
+    MaterialButton backButton;
     RecyclerView recyclerView;
     List<DataClass> dataList;
     DatabaseReference databaseReference;
@@ -35,6 +37,7 @@ public class ReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
         fillReport= findViewById(R.id.fillReport);
+        backButton=findViewById(R.id.backToMain);
         recyclerView= findViewById(R.id.recyclerView);
         searchView=findViewById(R.id.search);
         searchView.clearFocus();
@@ -87,6 +90,14 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ReportActivity.this,UploadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ReportActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });

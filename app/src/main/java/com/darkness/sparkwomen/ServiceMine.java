@@ -157,7 +157,7 @@ public class ServiceMine extends Service {
                     m.createNotificationChannel(channel);
 
                     Notification notification = new Notification.Builder(this, "MYID")
-                            .setContentTitle("Women Safety")
+                            .setContentTitle("Stop Abuse")
                             .setContentText("Shake Device to Send SOS")
                             .setSmallIcon(R.drawable.girlpower)
                             .setContentIntent(pendingIntent)

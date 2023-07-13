@@ -26,10 +26,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SmsManager manager = SmsManager.getDefault();
     MaterialButton add;
 
+    MaterialButton logout;
+
+    SharedPreferences sp;
+
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sp=getSharedPreferences("Data",MODE_PRIVATE);
+        editor=sp.edit();
 
         add= findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
@@ -40,12 +49,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        logout=findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+            }
+        });
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         findViewById(R.id.panicBtn).setOnClickListener(this);
         findViewById(R.id.fourth).setOnClickListener(this);
         findViewById(R.id.first).setOnClickListener(this);
         findViewById(R.id.second).setOnClickListener(this);
         findViewById(R.id.fifth).setOnClickListener(this);
+    }
+
+    private void logout() {
+
+        editor.clear();
+        editor.apply();
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
     }
 
     @Override

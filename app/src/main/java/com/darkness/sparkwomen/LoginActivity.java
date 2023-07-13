@@ -1,5 +1,6 @@
 package com.darkness.sparkwomen;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -12,6 +13,9 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,13 @@ public class LoginActivity extends AppCompatActivity {
 
         databaseHelper= new DatabaseHelper(this);
 
+        sp=getSharedPreferences("Data",MODE_PRIVATE);
+        editor=sp.edit();
+        boolean login=sp.getBoolean("ISLOGGEDIN",false);
+        if(login==true){
+            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            finish();
+        }
         binding.loginButton .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,10 +46,19 @@ public class LoginActivity extends AppCompatActivity {
                      Boolean checkCredentials = databaseHelper.checkEmailPassword(email,password);
 
                      if(checkCredentials==true){
-                         Toast.makeText(LoginActivity.this, "Login Successful !!!", Toast.LENGTH_SHORT).show();
-                         Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
-                         startActivity(intent);
-
+                         if(binding.checkBox.isChecked()){
+                             editor.putString("email",email);
+                             editor.putString("password",password);
+                             editor.putBoolean("ISLOGGEDIN",true);
+                             editor.apply();
+                             Toast.makeText(LoginActivity.this, "Login Successful !!!", Toast.LENGTH_SHORT).show();
+                             Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
+                             startActivity(intent);
+                         }else {
+                             Toast.makeText(LoginActivity.this, "Login Successful !!!", Toast.LENGTH_SHORT).show();
+                             Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
+                             startActivity(intent);
+                         }
                      }
                      else{
                          Toast.makeText(LoginActivity.this, "Login Failed !!!", Toast.LENGTH_SHORT).show();

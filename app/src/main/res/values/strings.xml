@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Stop Abuse</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
 
     <array name="lawsBig">
 
         <item>
-            Google it
+            संविधानको धारा ५१(क):
+            यस धारा ले बालबालिकाहरूका मौलिक अधिकारहरूको सुरक्षा प्रमाणित गर्दछ, जसमा उनीहरूले
+            गर्भवती जीवन, स्वास्थ्य, शोषणबाट संरक्षण, हिंसाबाट सुरक्षा र दुर्व्यय, उत्पीडन र
+            दुर्व्ययबाट संरक्षण गर्न अधिकार प्राप्त गरेका छन्। यसले मौलिक अधिकारहरूको उल्लंघन हुन्छ
+            र यस धारा ले बालबालिकाहरूलाई यसबाट संरक्षण गर्न उद्देश्य राख्छ।
         </item>
 
         <item>

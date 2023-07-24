@@ -22,7 +22,7 @@ public class LawsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_laws);
         RecyclerView recyclerView = findViewById(R.id.recycleLaws);
         // put description on strings.xml
-        String[] laws = new String[]{"The Prohibition of Child Marriage Act, 2006","Special Marriage Act, 1954","Dowry Prohibition Act, 1961","Nepali Divorce Act, 1969","Maternity Benefit Act,1861","Medical Termination of Pregnancy Act,1971","Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redress) Act, 2013","Indecent Representation of Women(Prevention) Act,1986","National Commission for Women Act, 1990","Equal Remuneration Act, 1976"};
+        String[] laws = new String[]{"The Prohibition of Child Marriage Act","Special Marriage Act","Dowry Prohibition Act","Nepali Divorce Act","Maternity Benefit Act","Medical Termination of Pregnancy Act","Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redress) Act","Indecent Representation of Women(Prevention) Act","National Commission for Women Act","Equal Remuneration Act"};
 
         MyAdapter adapter = new MyAdapter(this, laws, position -> {
             Intent intent = new Intent(LawsActivity.this,LawDisplayerActivity.class);

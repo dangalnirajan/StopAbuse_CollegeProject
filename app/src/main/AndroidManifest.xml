@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SparkWomen">
         <activity
+            android:name=".LatestMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReportDetailActivity"
             android:exported="false">
             <meta-data

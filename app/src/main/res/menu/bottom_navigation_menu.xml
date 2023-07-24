@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/bottom_feed"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+    <item
+        android:id="@+id/bottom_maps"
+        android:title="Maps"
+        android:icon="@drawable/ic_baseline_add_24"/>
+
+    <item
+        android:title=""
+        android:enabled="true"/>
+    <item
+        android:id="@+id/bottom_contact"
+        android:title="Contact"
+        android:icon="@drawable/contact"/>
+
+    <item
+        android:id="@+id/bottom_smsAlert"
+        android:title="SMS Alert"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+</menu>

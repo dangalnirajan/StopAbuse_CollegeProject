@@ -27,25 +27,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Emergency Contacts :"/>
+            android:text="Emergency Contacts :"
+            android:textStyle="italic"
+            />
 
         <TextView
             android:layout_marginStart="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Police : 100"/>
+            android:text="Police : 100"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_marginStart="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ambulance : 101"/>
+            android:text="Ambulance : 102"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:layout_marginStart="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fire brigade : 102"/>
+            android:text="Fire brigade : 103"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <TextView

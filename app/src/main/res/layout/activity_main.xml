@@ -34,8 +34,9 @@
         android:text="Stop Abuse"
         android:layout_above="@id/relativeLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="cursive"
+        android:textStyle="bold"
         android:textSize="40sp"/>
     //
 
@@ -45,7 +46,7 @@
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="120dp"
         android:backgroundTint="#A969E8"
         android:text="Feed"
@@ -54,13 +55,27 @@
         android:src="@drawable/ic_baseline_add_24"
         android:tint="@color/white"
          />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/maps"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="120dp"
+        android:backgroundTint="#5249D7"
+        android:text="Maps"
+        android:textAllCaps="false"
+        app:cornerRadius="100dp"
+        android:src="@drawable/ic_baseline_add_24"
+        android:tint="@color/white"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/logout"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="120dp"
         android:backgroundTint="#E00A1D"
         android:text="Logout"
@@ -98,7 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Contact"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -123,7 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SMS Alert"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
 
         </LinearLayout>
         <LinearLayout
@@ -177,7 +194,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Basic Laws"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
         </LinearLayout>
 
 
@@ -205,7 +223,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Self Defence"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
         </LinearLayout>
 
 

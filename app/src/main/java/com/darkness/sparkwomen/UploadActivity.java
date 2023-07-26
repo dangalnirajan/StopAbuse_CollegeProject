@@ -13,10 +13,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +32,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.lang.reflect.Array;
+
 public class UploadActivity extends AppCompatActivity {
 
     ImageView uploadImage;
@@ -36,6 +42,8 @@ public class UploadActivity extends AppCompatActivity {
     EditText uploadName,uploadAddress,uploadContact,uploadDescription;
     String imageURL;
     Uri uri;
+
+     Spinner uploadCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +57,40 @@ public class UploadActivity extends AppCompatActivity {
         uploadAddress=findViewById(R.id.upload_address);
         uploadContact=findViewById(R.id.upload_contact);
         uploadDescription=findViewById(R.id.upload_description);
+//        uploadCategory=findViewById(R.id.spinner_category);
+//        String[] categoryItems={"Physical Abuse" , "Emotional/Verbal Abuse" , "Psychological Abuse" ,
+//                "Sexual Abuse" , "Financial Abuse" , "Digital/Online Abuse" , "Stalking" ,
+//                "Spiritual Abuse" , "Cultural/Identity Abuse"};
+//
+//        ArrayAdapter<String> spinnerAdapter= new ArrayAdapter<>(this,
+//                android.R.layout.simple_spinner_item,categoryItems);
+//        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        uploadCategory.setAdapter(spinnerAdapter);
+
+//        uploadCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+//                String selectedCategory=categoryItems[position];
+//                Toast.makeText(UploadActivity.this, "Selected Category: " + selectedCategory, Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+        postAnonymous.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    uploadName.setVisibility(View.GONE);
+                    uploadContact.setVisibility(View.GONE);
+                }else {
+                    uploadName.setVisibility(View.VISIBLE);
+                    uploadContact.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         ActivityResultLauncher<Intent>  activityResultLauncher=registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -78,12 +120,27 @@ public class UploadActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveData();            }
+                saveData();
+                Intent intent = new Intent(UploadActivity.this, ReportActivity.class);
+                intent.putExtra("postAnonymous", postAnonymous.isChecked());
+                intent.putExtra("Name", uploadName.getText().toString());
+                intent.putExtra("Contact", uploadContact.getText().toString());
+                intent.putExtra("Address", uploadAddress.getText().toString());
+                intent.putExtra("Description", uploadDescription.getText().toString());
+//                intent.putExtra("Category", uploadCategory.getSelectedItemPosition());
+                startActivity(intent);
+            }
         });
     }
 
     public void saveData(){
 
+        String names ="";
+        String contacts ="";
+        if (!postAnonymous.isChecked()){
+            names=uploadName.getText().toString();
+            contacts=uploadContact.getText().toString();
+        }
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Image")
                 .child(uri.getLastPathSegment());
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadActivity.this);
@@ -112,10 +169,19 @@ public class UploadActivity extends AppCompatActivity {
     }
      public void uploadData(){
 
+         String names ="";
+         String contacts ="";
+
+         if(!postAnonymous.isChecked()){
+             names = uploadName.getText().toString();
+             contacts = uploadContact.getText().toString();
+         }
+
         String name = uploadName.getText().toString();
         String address = uploadAddress.getText().toString();
         String contact = uploadContact.getText().toString();
         String description = uploadDescription.getText().toString();
+//        int category = uploadCategory.getSelectedItemPosition();
 
         DataClass dataClass= new DataClass(name,address,contact,description,imageURL);
 

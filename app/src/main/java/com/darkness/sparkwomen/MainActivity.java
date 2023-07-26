@@ -51,6 +51,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        maps=findViewById(R.id.maps);
+        maps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         logout=findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        maps = findViewById(R.id.maps);
-        maps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,MapsActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         findViewById(R.id.panicBtn).setOnClickListener(this);

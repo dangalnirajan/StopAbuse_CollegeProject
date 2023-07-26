@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SparkWomen">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAaVTyKnBW6bNJSiKoABSWCDn8xwTzNF-4" />
         <activity
             android:name=".LatestMainActivity"
             android:exported="false" />
@@ -30,6 +33,13 @@
         </activity>
         <activity
             android:name=".ReportActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MapsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

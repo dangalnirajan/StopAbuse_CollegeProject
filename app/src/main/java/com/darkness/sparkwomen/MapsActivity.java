@@ -56,7 +56,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
         LatLng defaultLocation = new LatLng(37.7749, -122.4194);
-        updateLocationMarker(defaultLocation, "Marker in San Francisco");
+        updateLocationMarker(defaultLocation, "Pinned location");
     }
 
     private void startLocationUpdates() {

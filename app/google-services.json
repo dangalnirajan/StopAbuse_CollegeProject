@@ -1,41 +1,30 @@
-
-
 {
   "project_info": {
-    "project_number": "635284266688",
-    "project_id": "stopabuse-c90e0",
-    "storage_bucket": "stopabuse-c90e0.appspot.com"
+    "project_number": "375140870637",
+    "project_id": "stopabuse-85713",
+    "storage_bucket": "stopabuse-85713.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:635284266688:android:914e842b02c73602cf5725",
+        "mobilesdk_app_id": "1:375140870637:android:d50cbf32f1e0e92fa51fe4",
         "android_client_info": {
           "package_name": "com.darkness.sparkwomen"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "635284266688-93o1e47lvmc7elh5o1mf1vhhrffdan7d.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCjYfaHs9yPo0_h5ZpNDJvSeKvFWrAybNw"
+          "current_key": "AIzaSyAUXG8POtYTCDB8Bpy03_IrTzEbB_S1Oik"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "635284266688-93o1e47lvmc7elh5o1mf1vhhrffdan7d.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
   ],
   "configuration_version": "1"
 }
+

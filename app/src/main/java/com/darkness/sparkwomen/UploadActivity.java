@@ -149,6 +149,8 @@ public class UploadActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
 
+        final String finalNames= names;
+        final String finalContacts=contacts;
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -157,7 +159,13 @@ public class UploadActivity extends AppCompatActivity {
                 while (!uriTask.isComplete());
                 Uri uriImage = uriTask.getResult();
                 imageURL=uriImage.toString();
-                uploadData();
+//                if (postAnonymous.isChecked()) {
+//                    uploadData(finalNames, finalContacts); // Upload data with name and contact
+//                } else {
+//                    uploadData("", ""); // Upload data without name and contact
+//                }
+//                uploadData(finalNames,finalContacts);
+                uploadData(finalNames,finalContacts);
                 dialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -165,40 +173,78 @@ public class UploadActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 dialog.dismiss();
             }
-        });
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dialog.dismiss();
+            }
+        })
+        ;
     }
-     public void uploadData(){
+//     public void uploadData(String names, String contacts) {
+//
+////         String names ="";
+////         String contacts ="";
+////
+////         if(postAnonymous.isChecked()){
+////             names = uploadName.getText().toString();
+////             contacts = uploadContact.getText().toString();
+////         }
+//
+////         String name = uploadName.getText().toString();
+////         String contact = uploadContact.getText().toString();
+//         String name = (postAnonymous.isChecked()) ? null : names;
+//         String contact = (postAnonymous.isChecked()) ? null : contacts;
+//         String address = uploadAddress.getText().toString();
+//         String description = uploadDescription.getText().toString();
+////        int category = uploadCategory.getSelectedItemPosition();
+//
+//
+//
+//             DataClass dataClass = new DataClass(name, address, contact, description, imageURL);
+//
+//             FirebaseDatabase.getInstance().getReference("Android App by Dangal").child(name)
+//                     .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                         @Override
+//                         public void onComplete(@NonNull Task<Void> task) {
+//                             if (task.isSuccessful()) {
+//                                 Toast.makeText(UploadActivity.this, "Saved Success", Toast.LENGTH_SHORT).show();
+//                                 finish();
+//                             }
+//                         }
+//                     }).addOnFailureListener(new OnFailureListener() {
+//                         @Override
+//                         public void onFailure(@NonNull Exception e) {
+//                             Toast.makeText(UploadActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+//                         }
+//                     });
+//         }
 
-         String names ="";
-         String contacts ="";
-
-         if(!postAnonymous.isChecked()){
-             names = uploadName.getText().toString();
-             contacts = uploadContact.getText().toString();
-         }
-
-        String name = uploadName.getText().toString();
+    public void uploadData(String names, String contacts) {
+        String name = (postAnonymous.isChecked()) ? null : names;
+        String contact = (postAnonymous.isChecked()) ? null : contacts;
         String address = uploadAddress.getText().toString();
-        String contact = uploadContact.getText().toString();
         String description = uploadDescription.getText().toString();
-//        int category = uploadCategory.getSelectedItemPosition();
 
-        DataClass dataClass= new DataClass(name,address,contact,description,imageURL);
+        DataClass dataClass = new DataClass(name, address, contact, description, imageURL);
 
-         FirebaseDatabase.getInstance().getReference("Android App by Dangal").child(name)
-                 .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
-                     @Override
-                     public void onComplete(@NonNull Task<Void> task) {
-                         if(task.isSuccessful()){
-                             Toast.makeText(UploadActivity.this, "Saved Success", Toast.LENGTH_SHORT).show();
-                             finish();
-                         }
-                     }
-                 }).addOnFailureListener(new OnFailureListener() {
-                     @Override
-                     public void onFailure(@NonNull Exception e) {
-                         Toast.makeText(UploadActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                     }
-                 });
-     }
+        FirebaseDatabase.getInstance().getReference("Android App by Dangal").push()
+                .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(UploadActivity.this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(UploadActivity.this, "Failed to Save Data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UploadActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }
